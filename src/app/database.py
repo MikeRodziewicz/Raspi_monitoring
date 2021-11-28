@@ -1,19 +1,12 @@
 """
-    Module to create DB object, bind it and declare DB related functions.
+ Module to handle database related function, including initialization of the DB, 
+ binding and table creation. 
+
 """
-import os
+# could be a problem with circular imports here. 
 from pony import orm 
+from .models import TempCheck
+
+db = Database()
 
 
-def create_database(env:str, db):
-    """ Create DB based on the env variable"""
-
-    if env == 'DEV':
-        db.bind(provider='sqlite', filename='database_dev.sqlite', create_db=True)
-    elif env == 'TEST':
-        db.bind(provider='sqlite', filename=':memory:')
-    else:
-        db.bind(provider='sqlite', filename='database_dev.sqlite', create_db=True)
-
-    db.generate_mapping(create_tables=True)
-    
