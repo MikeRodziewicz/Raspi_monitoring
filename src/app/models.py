@@ -3,13 +3,14 @@
  binding and table creation. 
 
 """
-from pony.orm import * 
+from pony.orm import Database, Required
+from datetime import datetime
 
 db = Database()
 
 
 class TempCheck(db.Entity):
-    temp_value = Required(Decimal, precision=6, scale=2)
+    temp_value = Required(float)
     time_of_measurement = Required(datetime)
 
 

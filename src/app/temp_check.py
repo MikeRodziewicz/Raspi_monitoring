@@ -13,8 +13,7 @@ cpu = CPUTemperature()
 
 @db_session
 def take_measurement():
-"""Takes the reading and writes it to the DB model. """
-
+    """Takes the reading and writes it to the DB model. """
     temp_check = TempCheck(
             temp_value = cpu.temperature,
             time_of_measurement = datetime.now()
