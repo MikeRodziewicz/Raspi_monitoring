@@ -14,5 +14,5 @@ class TempCheck(db.Entity):
     time_of_measurement = Required(datetime)
 
 
-db.bind(provider='sqlite', filename='database.sqlite', create_db=True)
+db.bind(provider='sqlite', filename='../db/database.sqlite', create_db=True)
 db.generate_mapping(create_tables=True)
