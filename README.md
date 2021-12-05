@@ -13,6 +13,7 @@ Step 1:
 
 Step 2: 
  - Expose the DB to be accessed outside of the docker container
+ - you need to run this command: docker run -v /your/local/directory:/code/db
  - Deploy with mysql db as another docker service 
  - Once a day/ once a week some statistics are produced - mean, max, min etc. - this could use some design pattern - Strategy 
  - Save the resuls in a separate table in the DB 
