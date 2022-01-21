@@ -1,9 +1,23 @@
-## pony_orm_connector
+## Raspi_monitoring
+
+## Technology used: 
+- Python 
+- Docker
+- FastAPI
+- PonyORM
+- MySQL
+
 
 # Assumptions: 
 
-Small project to get familiar with Pony orm but more importantly with deployment on linux.
+Small project to get familiar with PonyORM and FastAPI but more importantly with deployment on linux.
 I will use raspberry pi, docker and python to get it running. 
+Application will run on the RPI, monitor the temperature and perhaps a few other statistics. 
+It will then use PonyORM to store them in MySQL database. 
+There will also be FastAPI app, that will expose this data via RESTful API. 
+
+I will consider it a success, when running a docker container I can get the data via postman from another machine in the network. 
+
 
 Plan:
 Step 1:  
@@ -15,18 +29,23 @@ Step 2:
  - Expose the DB to be accessed outside of the docker container
  - you need to run this command: docker run -v /your/local/directory:/code/db
  - Deploy with mysql db as another docker service 
- - Once a day/ once a week some statistics are produced - mean, max, min etc. - this could use some design pattern - Strategy 
- - Save the resuls in a separate table in the DB 
+ - Once a day/ once a week some statistics are produced - mean, max, min etc. - this could use some design pattern - TO DO  
+ - Save the resuls in a separate table in the DB - TO DO 
+
+Step 3: 
+ - Setup FastAPI app that will retrieve the data from MySQL and expose this to the outside. 
+
+Step 4: 
+ - Set alerts for when the threshold is exceeded. 
+ - Deliver email notification in such case. 
+
+Step 5: 
+- Expand the monitoring to other sensors - humidity for example. 
  
 # Future enhancements
 
 
+ 
 
-Step 3: 
- - If the temperature is above the treshold - event is triggered - another pattern could be applied here - Observer
- - They are send via email - this will require using .env and be careful with these
- - Another email is triggered but with different warning. 
 
-Step 4: 
- - use this setup to include more measurements - either fake values, or actual sensors plugged in to the rpi. 
 
